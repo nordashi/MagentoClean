@@ -84,7 +84,7 @@ function clean_var_directory() {
         'var/locks/',
         'var/log/',
         'var/report/',
-        'var/session/',
+//        'var/session/',  // <-- bad idea.
         'var/tmp/',
 	'tmp'
     );
@@ -92,4 +92,5 @@ function clean_var_directory() {
     foreach($dirs as $dir) {
         exec('rm -rf '.PATH.DIRECTORY_SEPARATOR.$dir);
     }
+    exec('find '. PATH . DIRECTORY_SEPARATOR .'var/session/ -mtime +30 -delete';  //clean only sessions older than 30 days.
 }
