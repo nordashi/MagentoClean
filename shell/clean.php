@@ -92,5 +92,5 @@ function clean_var_directory() {
     foreach($dirs as $dir) {
         exec('rm -rf '.PATH.DIRECTORY_SEPARATOR.$dir);
     }
-    exec('find '. PATH . DIRECTORY_SEPARATOR .'var/session/ -mtime +30 -delete');  //clean only sessions older than 30 days.
+    exec('find '. PATH . DIRECTORY_SEPARATOR .'var/session/ -mindepth 1 -mtime +30 -delete');  //clean only sessions older than 30 days.
 }
